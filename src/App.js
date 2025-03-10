@@ -2,6 +2,10 @@ import React from "react";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Operations from "./components/operation/Operations";
+import OperationForm from "./components/operation/OperationForm";
+
+import { Routes, Route } from 'react-router-dom';
+
 
 const App = () => {
   const items = [
@@ -38,10 +42,13 @@ const App = () => {
   ];
 
   return (
-    <div>
-      <Nav />
-      <Operations items={items} />
-      <Footer />
+    <div>{
+      <Routes>
+        <Route path="/" element={<Operations items={items} />} />
+        <Route path="/operationForm" element={<OperationForm/>} />
+      </Routes>
+      }
+      
     </div>
   );
 };
